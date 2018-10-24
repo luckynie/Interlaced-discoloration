@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>a</li>
+			<li>b</li>
+			<li>c</li>
+			<li>d</li>
+			<li>e</li>
+			<li>f</li>
+			<li>g</li>
+			<li>h</li>
+			<li>i</li>
+			<li>j</li>
+		</ul>
+	</body>
+</html>
+<script src="jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	$.fn.extend({
+		setColor : function(){
+			$(this).each(function(index,item){
+				if(index % 2){
+					$(this).css("background","lightpink")
+				}else{
+					$(this).css("background","antiquewhite")
+				}
+			}) 
+			return $(this);
+		},
+		overFn : function(){
+			$(this).mouseenter(function(){
+				color = $(this).css('background');
+				$(this).css("background","aquamarine")
+			})
+			return $(this);
+		},
+		outFn : function(){
+			$(this).mouseleave(function(){
+				$(this).css("background",color)
+			})
+		}
+	})
+	$("li").setColor().overFn().outFn();
+</script>
